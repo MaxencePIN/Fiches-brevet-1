@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fiches de révision — Brevet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,300;0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+
+<style>
+/* ── Couleurs thématiques ── */
+:root {
+  --bl:#E6F1FB; --bt:#0C447C; --bb:#B5D4F4;
+  --pl:#EEEDFE; --pt:#3C3489; --pb:#CECBF6;
+  --tl:#E1F5EE; --tt:#085041; --tb:#9FE1CB;
+  --al:#FAEEDA; --at:#633806; --ab:#FAC775;
+  --cl:#FAECE7; --ct:#712B13; --cb:#F5C4B3;
+
+  /* UI tokens */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 18px;
+
+  --shadow-card: 0 1px 3px rgba(0,0,0,.06), 0 4px 12px rgba(0,0,0,.04);
+  --shadow-badge: 0 1px 4px rgba(0,0,0,.12);
+  --transition: .14s ease;
+
+  --font-body: 'Source Serif 4', Georgia, serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bl:#042C53; --bt:#B5D4F4; --bb:#185FA5;
+    --pl:#26215C; --pt:#CECBF6; --pb:#534AB7;
+    --tl:#04342C; --tt:#9FE1CB; --tb:#0F6E56;
+    --al:#412402; --at:#FAC775; --ab:#854F0B;
+    --cl:#4A1B0C; --ct:#F5C4B3; --cb:#993C1D;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--color-text-primary);
+  background: var(--color-background-primary);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Layout ── */
+.app {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 3rem;
+}
+
+/* ── Navigation ── */
+.tnav {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+  padding-bottom: 18px;
+  border-bottom: 1.5px solid var(--color-border-tertiary);
+}
+
+.tb {
+  padding: 7px 15px;
+  border-radius: 999px;
+  border: 1.5px solid var(--color-border-secondary);
+  background: transparent;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: .01em;
+  transition: all var(--transition);
+}
+.tb:hover {
+  background: var(--color-background-secondary);
+  color: var(--color-text-primary);
+  border-color: var(--color-border-primary);
+}
+.tb.active {
+  font-weight: 600;
+  border-color: currentColor;
+  color: var(--color-text-primary);
+}
+
+/* ── Chapter header ── */
+.chh {
+  padding: 20px 22px;
+  border-radius: var(--radius-xl);
+  margin-bottom: 22px;
+  position: relative;
+  overflow: hidden;
+}
+.chh::after {
+  content: '';
+  position: absolute;
+  right: -20px; top: -30px;
+  width: 120px; height: 120px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: .06;
+}
+.chcat {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+  font-family: var(--font-body);
+}
+.chtit {
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -.5px;
+  line-height: 1.2;
+}
+
+/* ── Main blocks ── */
+.mblock {
+  border: 1.5px solid var(--color-border-tertiary);
+  border-radius: var(--radius-lg);
+  padding: 18px 20px;
+  margin-bottom: 14px;
+  background: var(--color-background-primary);
+  box-shadow: var(--shadow-card);
+  transition: box-shadow var(--transition);
+}
+.mblock:hover {
+  box-shadow: 0 2px 8px rgba(0,0,0,.08), 0 6px 20px rgba(0,0,0,.06);
+}
+
+.mhead {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.mbadge {
+  min-width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 2px;
+  box-shadow: var(--shadow-badge);
+  font-family: var(--font-mono);
+}
+.mblock h3 {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: -.2px;
+}
+
+.mblock ul {
+  margin: 0 0 8px;
+  padding-left: 20px;
+}
+.mblock li {
+  margin-bottom: 4px;
+  font-size: 14.5px;
+}
+.mblock li::marker { color: var(--color-text-tertiary); }
+
+/* ── Example boxes ── */
+.ebox {
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  margin-top: 12px;
+  background: var(--color-background-secondary);
+  font-size: 14px;
+  border: 1px solid var(--color-border-tertiary);
+}
+.ebox + .ebox { margin-top: 10px; }
+
+.elbl {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-text-tertiary);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: .6px;
+  font-family: var(--font-body);
+}
+
+.step { margin: 5px 0; font-size: 14.5px; }
+.step.res {
+  font-weight: 600;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--color-border-tertiary);
+  font-size: 15px;
+}
+
+/* ── Fractions ── */
+.fr {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  vertical-align: middle;
+  font-size: .9em;
+  margin: 0 2px;
+  font-family: var(--font-mono);
+}
+.fr .n { border-bottom: 1.5px solid; padding: 0 4px; line-height: 1.4; text-align: center; }
+.fr .d { padding: 0 4px; line-height: 1.4; text-align: center; }
+
+.bfwrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin: 14px 0 6px;
+  flex-wrap: wrap;
+}
+.bfrac {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: stretch;
+  font-size: 14px;
+  font-family: var(--font-mono);
+}
+.bfrac .bfn { display: flex; align-items: center; gap: 5px; padding: 5px 10px; border-bottom: 2px solid var(--color-text-primary); }
+.bfrac .bfd { display: flex; align-items: center; gap: 5px; padding: 5px 10px; }
+
+.fs {
+  text-decoration: line-through;
+  color: var(--color-text-tertiary);
+  background: var(--color-background-secondary);
+  padding: 0 3px;
+  border-radius: 3px;
+}
+.fk { font-weight: 600; }
+.fmid { font-size: 20px; margin: 0 4px; }
+
+/* ── Formulas ── */
+.formula-row {
+  background: var(--color-background-secondary);
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  font-size: 15.5px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 8px;
+  font-family: var(--font-mono);
+  letter-spacing: -.3px;
+  border: 1px solid var(--color-border-tertiary);
+}
+
+/* ── SOHCAHTOA grid ── */
+.soh-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 12px;
+}
+.soh-cell {
+  background: var(--color-background-secondary);
+  border-radius: var(--radius-md);
+  padding: 12px;
+  text-align: center;
+  border: 1px solid var(--color-border-tertiary);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.soh-cell:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,.1);
+}
+.soh-sub {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--color-text-tertiary);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: .8px;
+  font-family: var(--font-mono);
+}
+.soh-f { font-size: 13px; font-weight: 500; font-family: var(--font-mono); }
+
+/* ── Trigonometry boxes ── */
+.trigbox {
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  margin-top: 12px;
+  background: var(--color-background-secondary);
+  font-size: 14px;
+  border: 1px solid var(--color-border-tertiary);
+}
+.trigi {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+.trigs { flex: 1; min-width: 150px; }
+
+/* ── Trig diagram wrapper ── */
+.trig-diagram {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+.trig-diagram-caption {
+  font-size: 10px;
+  color: var(--color-text-tertiary);
+  font-style: italic;
+  text-align: center;
+  max-width: 160px;
+  line-height: 1.4;
+}
+
+/* ── Legend strip inside diagram ── */
+.leg-strip {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  font-size: 10.5px;
+  color: var(--color-text-secondary);
+  margin-top: 6px;
+  justify-content: center;
+}
+.leg-item { display: flex; align-items: center; gap: 4px; }
+.leg-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ── Exercises ── */
+.exo {
+  border: 1.5px solid var(--color-border-secondary);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-top: 24px;
+  box-shadow: var(--shadow-card);
+}
+.exoh {
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.exob { padding: 14px 20px 18px; }
+.exob p { margin: 0 0 12px; font-size: 14.5px; }
+.exob ol { margin: 0; padding-left: 20px; font-size: 14.5px; }
+.exob li { margin-bottom: 6px; }
+
+.corr-btn {
+  margin-top: 14px;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  border: 1.5px solid var(--color-border-tertiary);
+  border-radius: var(--radius-md);
+  padding: 7px 14px;
+  background: transparent;
+  width: 100%;
+  text-align: left;
+  transition: background var(--transition), color var(--transition);
+}
+.corr-btn:hover { background: var(--color-background-secondary); color: var(--color-text-primary); }
+
+.corr { display: none; margin-top: 12px; padding-top: 12px; border-top: 1px dashed var(--color-border-tertiary); font-size: 14px; }
+.corr.open { display: block; }
+.ci { margin-bottom: 6px; }
+.ci .q { font-weight: 600; color: var(--color-text-secondary); margin-right: 5px; }
+
+.note {
+  font-size: 13px;
+  color: var(--color-text-tertiary);
+  margin: 10px 0 0;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+.kcard {
+  background: var(--color-background-secondary);
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  margin-bottom: 12px;
+  font-size: 14.5px;
+  border: 1px solid var(--color-border-tertiary);
+}
+
+/* ── Trig reference diagram (large) ── */
+.trig-ref-wrap {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+.trig-ref-svg { flex-shrink: 0; }
+
+/* ── Colour-coded sides legend ── */
+.sides-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 12px;
+  font-size: 13px;
+}
+.side-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.side-swatch {
+  width: 30px;
+  height: 4px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+/* ── Responsive tweaks ── */
+@media (max-width: 480px) {
+  .soh-grid { grid-template-columns: 1fr; }
+  .trig-ref-wrap { flex-direction: column; }
+  .trigi { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+<div class="app">
+
+<!-- ── Navigation ── -->
+<div class="tnav" id="tnav">
+  <button class="tb active" data-ch="fr">Fractions</button>
+  <button class="tb" data-ch="eq">Équations</button>
+  <button class="tb" data-ch="fn">Fonctions</button>
+  <button class="tb" data-ch="id">Identités remarquables</button>
+  <button class="tb" data-ch="tr">Trigonométrie</button>
+</div>
+
+<!-- ===== FRACTIONS ===== -->
+<div id="ch-fr">
+  <div class="chh" style="background:var(--bl);color:var(--bt)">
+    <div class="chcat">Calcul numérique</div>
+    <div class="chtit">Fractions</div>
+  </div>
+
+  <div class="mblock" style="border-color:var(--bb)">
+    <div class="mhead">
+      <div class="mbadge" style="background:var(--bl);color:var(--bt)">1</div>
+      <h3>Réduire une fraction en forme irréductible</h3>
+    </div>
+    <ul>
+      <li>Décomposer numérateur et dénominateur en <b>produit de facteurs premiers</b> (2, 3, 5, 7…)</li>
+      <li>Repérer les <b>facteurs communs</b> (les mêmes chiffres en haut et en bas)</li>
+      <li>Les <b>barrer</b> par paires — il reste la fraction simplifiée</li>
+    </ul>
+    <div class="ebox">
+      <div class="elbl">Exemple — réduire 60/84</div>
+      <div class="step">60 = 2 × 2 × 3 × 5</div>
+      <div class="step">84 = 2 × 2 × 3 × 7</div>
+      <div class="bfwrap">
+        <div class="bfrac">
+          <div class="bfn"><span class="fs">2</span><span>×</span><span class="fs">2</span><span>×</span><span class="fs">3</span><span>×</span><span class="fk">5</span></div>
+          <div class="bfd"><span class="fs">2</span><span>×</span><span class="fs">2</span><span>×</span><span class="fs">3</span><span>×</span><span class="fk">7</span></div>
+        </div>
+        <span class="fmid">=</span>
+        <span class="fr" style="font-size:1.2em"><span class="n"><b>5</b></span><span class="d"><b>7</b></span></span>
+      </div>
+      <div class="step res"><span class="fr"><span class="n">60</span><span class="d">84</span></span> = <span class="fr"><span class="n">5</span><span class="d">7</span></span> ✓ fraction irréductible</div>
+    </div>
+  </div>
+
+  <div class="mblock" style="border-color:var(--bb)">
+    <div class="mhead">
+      <div class="mbadge" style="background:var(--bl);color:var(--bt)">2</div>
+      <h3>Comparer des fractions</h3>
+    </div>
+    <ul>
+      <li>Vérifier que chaque fraction est irréductible (méthode 1)</li>
+      <li>Multiplier le numérateur <b>et</b> le dénominateur de chaque fraction par le dénominateur de l'autre</li>
+      <li>Les dénominateurs sont maintenant identiques → <b>comparer les numérateurs</b></li>
+    </ul>
+    <div class="ebox">
+      <div class="elbl">Exemple — comparer 5/6 et 7/9</div>
+      <div class="step">5/6 et 7/9 sont irréductibles ✓</div>
+      <div class="step" style="margin-top:10px">
+        <span class="fr"><span class="n">5</span><span class="d">6</span></span>
+        <span style="margin:0 4px">=</span>
+        <span class="fr"><span class="n">5 × <b>9</b></span><span class="d">6 × <b>9</b></span></span>
+        <span style="margin:0 4px">=</span>
+        <span class="fr"><span class="n"><b>45</b></span><span class="d">54</span></span>
+        <span style="margin:0 12px;color:var(--color-text-tertiary)">et</span>
+        <span class="fr"><span class="n">7</span><span class="d">9</span></span>
+        <span style="margin:0 4px">=</span>
+        <span class="fr"><span class="n">7 × <b>6</b></span><span class="d">9 × <b>6</b></span></span>
+        <span style="margin:0 4px">=</span>
+        <span class="fr"><span class="n"><b>42</b></span><span class="d">54</span></span>
+      </div>
+      <div class="step res">45 > 42 donc <span class="fr"><span class="n">5</span><span class="d">6</span></span> > <span class="fr"><span class="n">7</span><span class="d">9</span></span></div>
+    </div>
+  </div>
+
+  <div class="mblock" style="border-color:var(--bb)">
+    <div class="mhead">
+      <div class="mbadge" style="background:var(--bl);color:var(--bt)">3</div>
+      <h3>Proportion d'un nombre</h3>
+    </div>
+    <ul><li>Multiplier la fraction par le nombre total</li></ul>
+    <div class="ebox">
+      <div class="elbl">Exemple — calculer 3/5 de 120</div>
+      <div class="step res"><span class="fr"><span class="n">3</span><span class="d">5</span></span> × 120 = <span class="fr"><span class="n">3 × 120</span><span class="d">5</span></span> = <span class="fr"><span class="n">360</span><span class="d">5</span></span> = <b>72</b></div>
+    </div>
+  </div>
+
+  <div class="mblock" style="border-color:var(--bb)">
+    <div class="mhead">
+      <div class="mbadge" style="background:var(--bl);color:var(--bt)">4</div>
+      <h3>Proportion restante</h3>
+    </div>
+    <ul>
+      <li>Soustraire à 1 toutes les fractions connues (même dénominateur)</li>
+      <li>Multiplier la fraction restante par le total</li>
+    </ul>
+    <div class="ebox">
+      <div class="elbl">Exemple — 120 élèves : 1/3 sport, 2/5 musique</div>
+      <div class="step">1 − <span class="fr"><span class="n">1</span><span class="d">3</span></span> − <span class="fr"><span class="n">2</span><span class="d">5</span></span> = <span class="fr"><span class="n">15</span><span class="d">15</span></span> − <span class="fr"><span class="n">5</span><span class="d">15</span></span> − <span class="fr"><span class="n">6</span><span class="d">15</span></span> = <span class="fr"><span class="n">4</span><span class="d">15</span></span></div>
+      <div class="step res">Restants : <span class="fr"><span class="n">4</span><span class="d">15</span></span> × 120 = <b>32 élèves</b></div>
+    </div>
+  </div>
+
+  <div class="exo" style="border-color:var(--bb)">
+    <div class="exoh" style="background:var(--bl)"><i class="ti ti-pencil" style="font-size:15px;color:var(--bt)"></i><span style="font-weight:600;font-size:14px;color:var(--bt)">Exercice d'entraînement</span></div>
+    <div class="exob">
+      <p>Dans une classe de 36 élèves : <span class="fr"><span class="n">5</span><span class="d">9</span></span> ont moins de 14 ans, <span class="fr"><span class="n">1</span><span class="d">4</span></span> ont exactement 14 ans, les autres ont plus de 14 ans.</p>
+      <ol>
+        <li>Vérifier que <span class="fr"><span class="n">5</span><span class="d">9</span></span> et <span class="fr"><span class="n">1</span><span class="d">4</span></span> sont irréductibles.</li>
+        <li>Quelle fraction des élèves a plus de 14 ans ?</li>
+        <li>Comparer cette fraction à <span class="fr"><span class="n">1</span><span class="d">5</span></span>.</li>
+        <li>Combien d'élèves ont plus de 14 ans ?</li>
+      </ol>
+      <button class="corr-btn" onclick="tog(this)">Voir la correction ▾</button>
+      <div class="corr">
+        <div class="ci"><span class="q">a)</span> 5 = 5 et 9 = 3×3 : aucun facteur commun → irréductible ✓. 1 et 4 = 2×2 : aucun facteur commun → irréductible ✓</div>
+        <div class="ci"><span class="q">b)</span> 1 − <span class="fr"><span class="n">5</span><span class="d">9</span></span> − <span class="fr"><span class="n">1</span><span class="d">4</span></span> = <span class="fr"><span class="n">36</span><span class="d">36</span></span> − <span class="fr"><span class="n">20</span><span class="d">36</span></span> − <span class="fr"><span class="n">9</span><span class="d">36</span></span> = <b><span class="fr"><span class="n">7</span><span class="d">36</span></span></b></div>
+        <div class="ci"><span class="q">c)</span> <span class="fr"><span class="n">7</span><span class="d">36</span></span> = <span class="fr"><span class="n">7×5</span><span class="d">36×5</span></span> = <span class="fr"><span class="n">35</span><span class="d">180</span></span> et <span class="fr"><span class="n">1</span><span class="d">5</span></span> = <span class="fr"><span class="n">1×36</span><span class="d">5×36</span></span> = <span class="fr"><span class="n">36</span><span class="d">180</span></span> → <b><span class="fr"><span class="n">1</span><span class="d">5</span></span> > <span class="fr"><span class="n">7</span><span class="d">36</span></span></b></div>
+        <div class="ci"><span class="q">d)</span> <span class="fr"><span class="n">7</span><span class="d">36</span></span> × 36 = <b>7 élèves</b></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== EQUATIONS ===== -->
+<div id="ch-eq" style="display:none">
+  <div class="chh" style="background:var(--pl);color:var(--pt)">
+    <div class="chcat">Algèbre</div>
+    <div class="chtit">Équations</div>
+  </div>
+
+  <div class="mblock" style="border-color:var(--pb)">
+    <div class="mhead"><div class="mbadge" style="background:var(--pl);color:var(--pt)">1</div><h3>Équation du premier degré</h3></div>
+    <ul>
+      <li><b>Passer un terme de l'autre côté change son signe</b> (+ devient −, et inversement)</li>
+      <li>Pour une multiplication/division : effectuer l'<b>opération inverse</b> des deux côtés</li>
+      <li>Tous les x d'un côté, les nombres de l'autre, puis isoler x</li>
+    </ul>
+    <div class="ebox">
+      <div class="elbl">Exemple — résoudre 5x − 4 = 2x + 11</div>
+      <div class="step">5x − 2x = 11 + 4 <span style="font-size:12px;color:var(--color-text-tertiary)">(x à gauche, nombres à droite)</span></div>
+      <div class="step">3x = 15</div>
+      <div class="step res">x = <b>5</b></div>
+    </div>
+  </div>
+
+  <div class="mblock" style="border-color:var(--pb)">
+    <div class="mhead"><div class="mbadge" style="background:var(--pl);color:var(--pt)">2</div><h3>Produit nul</h3></div>
+    <ul>
+      <li>A × B = 0 ⟺ A = 0 <b>ou</b> B = 0</li>
+      <li>Résoudre chacune des deux équations séparément</li>
+    </ul>
+    <div class="ebox">
+      <div class="elbl">Exemple — résoudre (3x − 6)(2x + 10) = 0</div>
+      <div class="step">Soit 3x − 6 = 0 → 3x = 6 → x = 2</div>
+      <div class="step">Soit 2x + 10 = 0 → 2x = −10 → x = −5</div>
+      <div class="step res">S = {−5 ; 2}</div>
+    </div>
+  </div>
+
+  <div class="mblock" style="border-color:var(--pb)">
+    <div class="mhead"><div class="mbadge" style="background:var(--pl);color:var(--pt)">3</div><h3>Forme x² = a</h3></div>
+    <ul>
+      <li>Si <b>a &lt; 0</b> : aucune solution (racine carrée d'un négatif impossible)</li>
+      <li>Si <b>a = 0</b> : x = 0</li>
+      <li>Si <b>a &gt; 0</b> : x = √a ou x = −√a — <b>toujours les deux !</b></li>
+      <li>Si √a est un entier (ex : √49 = 7), écrire cet entier ; sinon laisser √a</li>
+    </ul>
+    <div class="ebox">
+      <div class="elbl">Exemples</div>
+      <div class="step"><b>x² = 49</b> → x = 7 ou x = −7 → S = {−7 ; 7}</div>
+      <div class="step"><b>x² = 5</b> → x = √5 ou x = −√5 → S = {−√5 ; √5}</div>
+      <div class="step"><b>x² = −3</b> → −3 &lt; 0 → <b>aucune solution</b> → S = ∅</div>
+    </div>
+  </div>
+
+  <div class="exo" style="border-color:var(--pb)">
+    <div class="exoh" style="background:var(--pl)"><i class="ti ti-pencil" style="font-size:15px;color:var(--pt)"></i><span style="font-weight:600;font-size:14px;color:var(--pt)">Exercice d'entraînement</span></div>
+    <div class="exob">
+      <p>Résoudre les équations suivantes :</p>
+      <ol>
+        <li>6x − 5 = 3x + 13</li>
+        <li>(2x − 8)(x + 3) = 0</li>
+        <li>3x² = 75 <em style="color:var(--color-text-tertiary)">(isoler x² d'abord)</em></li>
+        <li>x² + 4 = 0</li>
+        <li>(x − 2)² = 9 <em style="color:var(--color-text-tertiary)">(poser X = x − 2)</em></li>
+      </ol>
+      <button class="corr-btn" onclick="tog(this)">Voir la correction ▾</button>
+      <div class="corr">
+        <div class="ci"><span class="q">a)</span> 3x = 18 → <b>x = 6</b></div>
+        <div class="ci"><span class="q">b)</span> 2x − 8 = 0 → x = 4 | x + 3 = 0 → x = −3 → <b>S = {−3 ; 4}</b></div>
+        <div class="ci"><span class="q">c)</span> x² = 25 → x = 5 ou x = −5 → <b>S = {−5 ; 5}</b></div>
+        <div class="ci"><span class="q">d)</span> x² = −4 &lt; 0 → <b>aucune solution</b></div>
+        <div class="ci"><span class="q">e)</span> X² = 9 → X = 3 ou X = −3 → x−2 = 3 → x = 5 ou x−2 = −3 → x = −1 → <b>S = {−1 ; 5}</b></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== FONCTIONS ===== -->
+<div id="ch-fn" style="display:none">
+  <div class="chh" style="background:var(--tl);color:var(--tt)">
+    <div class="chcat">Analyse</div>
+    <div class="chtit">Fonctions</div>
+  </div>
+
+  <div class="kcard" style="border:1.5px solid var(--tb)">
+    <div style="font-size:14.5px">
+      <div style="margin-bottom:6px">L'<b>image</b> de a par f est f(a) : on remplace x par a et on calcule</div>
+      <div>L'<b>antécédent</b> de b par f est le x tel que f(x) = b : on pose l'équation et on cherche x</div>
+    </div>
+  </div>
+
+  <div class="mblock" style="border-color:var(--tb)">
+    <div class="mhead"><div class="mbadge" style="background:var(--tl);color:var(--tt)">1</div><h3>Calculer une image</h3></div>
+    <ul><li>Remplacer x par la valeur dans l'expression de f(x) et calculer étape par étape</li></ul>
+    <div class="ebox">
+      <div class="elbl">Exemple — f(x) = 3x² − 2x + 1, calculer f(3)</div>
+      <div class="step">f(3) = 3 × 3² − 2 × 3 + 1 = 3 × 9 − 6 + 1 = 27 − 6 + 1</div>
+      <div class="step res">f(3) = <b>22</b> → l'image de 3 par f est 22</div>
+    </div>
+  </div>
+
+  <div class="mblock" style="border-color:var(--tb)">
+    <div class="mhead"><div class="mbadge" style="background:var(--tl);color:var(--tt)">2</div><h3>Trouver un antécédent</h3></div>
+    <ul>
+      <li>Poser l'équation f(x) = valeur cherchée</li>
+      <li>Résoudre avec la méthode classique (1er degré, produit nul, x² = a…)</li>
+      <li>Il peut y avoir 0, 1 ou 2 antécédents</li>
+    </ul>
+    <div class="ebox">
+      <div class="elbl">Exemple — f(x) = 4x − 7, trouver l'antécédent de 5</div>
+      <div class="step">On pose : 4x − 7 = 5</div>
+      <div class="step">4x = 12</div>
+      <div class="step res">x = 3 → l'antécédent de 5 par f est <b>3</b></div>
+    </div>
+  </div>
+
+  <div class="exo" style="border-color:var(--tb)">
+    <div class="exoh" style="background:var(--tl)"><i class="ti ti-pencil" style="font-size:15px;color:var(--tt)"></i><span style="font-weight:600;font-size:14px;color:var(--tt)">Exercice d'entraînement</span></div>
+    <div class="exob">
+      <p>On donne f(x) = 2x² − 8.</p>
+      <ol>
+        <li>Calculer f(0), f(3) et f(−2).</li>
+        <li>Montrer que 10 admet au moins un antécédent par f et les trouver tous.</li>
+        <li>La valeur −10 admet-elle un antécédent par f ? Justifier.</li>
+      </ol>
+      <button class="corr-btn" onclick="tog(this)">Voir la correction ▾</button>
+      <div class="corr">
+        <div class="ci"><span class="q">a)</span> f(0) = −8 | f(3) = 18−8 = <b>10</b> | f(−2) = 8−8 = <b>0</b></div>
+        <div class="ci"><span class="q">b)</span> 2x²−8 = 10 → 2x² = 18 → x² = 9 → x = 3 ou x = −3 → <b>S = {−3 ; 3}</b></div>
+        <div class="ci"><span class="q">c)</span> 2x²−8 = −10 → 2x² = −2 → x² = −1 &lt; 0 → <b>aucun antécédent</b></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== IDENTITÉS ===== -->
+<div id="ch-id" style="display:none">
+  <div class="chh" style="background:var(--al);color:var(--at)">
+    <div class="chcat">Algèbre</div>
+    <div class="chtit">Identités remarquables</div>
+  </div>
+
+  <div class="mblock" style="border-color:var(--ab)">
+    <h3 style="margin-bottom:12px">Les 3 identités à connaître par cœur</h3>
+    <div class="formula-row">(a + b)² = a² + 2ab + b²</div>
+    <div class="formula-row">(a − b)² = a² − 2ab + b²</div>
+    <div class="formula-row">(a + b)(a − b) = a² − b²</div>
+  </div>
+
+  <div class="mblock" style="border-color:var(--ab)">
+    <div class="mhead"><div class="mbadge" style="background:var(--al);color:var(--at)">1</div><h3>Développer avec une identité</h3></div>
+    <ul><li>Identifier a et b dans l'expression, puis appliquer la formule correspondante</li></ul>
+    <div class="ebox">
+      <div class="elbl">Exemple — développer (2x − 3)²</div>
+      <div class="step">a = 2x, b = 3 → utiliser (a − b)²</div>
+      <div class="step">(2x)² − 2 × 2x × 3 + 3²</div>
+      <div class="step res">= <b>4x² − 12x + 9</b></div>
+    </div>
+  </div>
+
+  <div class="mblock" style="border-color:var(--ab)">
+    <div class="mhead"><div class="mbadge" style="background:var(--al);color:var(--at)">2</div><h3>Reconnaître et factoriser</h3></div>
+    <ul>
+      <li><b>Carré parfait</b> : 3 termes dont le 1er et le dernier sont des carrés, le terme du milieu = 2ab → factoriser en <b>(a + b)²</b> ou <b>(a − b)²</b></li>
+      <li><b>Différence de deux carrés</b> : A² − B² → factoriser en <b>(A − B)(A + B)</b></li>
+    </ul>
+    <div class="ebox">
+      <div class="elbl">Exemple 1 — factoriser x² + 8x + 16</div>
+      <div class="step">x² + 2 × x × 4 + 4² <span style="font-size:12px;color:var(--color-text-tertiary)">(a = x, b = 4 car 2×x×4 = 8x ✓)</span></div>
+      <div class="step res">= <b>(x + 4)²</b></div>
+    </div>
+    <div class="ebox">
+      <div class="elbl">Exemple 2 — factoriser 9x² − 25</div>
+      <div class="step">(3x)² − 5² <span style="font-size:12px;color:var(--color-text-tertiary)">(a = 3x, b = 5)</span></div>
+      <div class="step res">= <b>(3x − 5)(3x + 5)</b></div>
+    </div>
+  </div>
+
+  <div class="mblock" style="border-color:var(--ab)">
+    <div class="mhead"><div class="mbadge" style="background:var(--al);color:var(--at)">3</div><h3>Réduire puis factoriser au maximum</h3></div>
+    <ul>
+      <li>Développer toutes les expressions, regrouper les termes semblables</li>
+      <li>Chercher un facteur commun dans le résultat final</li>
+    </ul>
+    <div class="ebox">
+      <div class="elbl">Exemple — réduire (x − 2)² − (x − 2)(x + 2)</div>
+      <div class="step">= (x² − 4x + 4) − (x² − 4)</div>
+      <div class="step">= x² − 4x + 4 − x² + 4 = −4x + 8</div>
+      <div class="step res">= <b>−4(x − 2)</b></div>
+      <p class="note">Astuce : factoriser dès le départ par (x−2) : (x−2)[(x−2)−(x+2)] = (x−2)(−4)</p>
+    </div>
+  </div>
+
+  <div class="exo" style="border-color:var(--ab)">
+    <div class="exoh" style="background:var(--al)"><i class="ti ti-pencil" style="font-size:15px;color:var(--at)"></i><span style="font-weight:600;font-size:14px;color:var(--at)">Exercice d'entraînement</span></div>
+    <div class="exob">
+      <ol>
+        <li>Développer et réduire : (x + 5)² − (x − 5)(x + 5)</li>
+        <li>Factoriser : 4x² − 20x + 25</li>
+        <li>Factoriser : x² − 49</li>
+        <li>Développer et réduire : (3x − 1)² − (2x + 3)²</li>
+      </ol>
+      <button class="corr-btn" onclick="tog(this)">Voir la correction ▾</button>
+      <div class="corr">
+        <div class="ci"><span class="q">a)</span> (x²+10x+25) − (x²−25) = 10x+50 = <b>10(x+5)</b></div>
+        <div class="ci"><span class="q">b)</span> (2x)²−2×2x×5+5² = <b>(2x−5)²</b></div>
+        <div class="ci"><span class="q">c)</span> x²−7² = <b>(x−7)(x+7)</b></div>
+        <div class="ci"><span class="q">d)</span> (9x²−6x+1) − (4x²+12x+9) = <b>5x²−18x−8</b></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== TRIGONOMÉTRIE ===== -->
+<div id="ch-tr" style="display:none">
+  <div class="chh" style="background:var(--cl);color:var(--ct)">
+    <div class="chcat">Géométrie</div>
+    <div class="chtit">Trigonométrie</div>
+  </div>
+
+  <!-- ── Schéma de référence enrichi ── -->
+  <div class="mblock" style="border-color:var(--cb)">
+    <h3 style="margin-bottom:14px">SOHCAHTOA — les 3 formules</h3>
+
+    <!-- Grand schéma couleur avec légende -->
+    <div class="trig-ref-wrap">
+      <div class="trig-diagram">
+        <svg viewBox="0 0 220 180" style="width:200px;height:auto" role="img" aria-label="Triangle rectangle de référence avec les 3 côtés colorés">
+          <!-- Remplissage léger -->
+          <polygon points="30,150 185,150 185,30" fill="var(--cl)" fill-opacity="0.35" stroke="none"/>
+          <!-- Côté adjacent (bleu) -->
+          <line x1="30" y1="150" x2="185" y2="150" stroke="#2980b9" stroke-width="3" stroke-linecap="round"/>
+          <!-- Côté opposé (rouge) -->
+          <line x1="185" y1="150" x2="185" y2="30" stroke="#c0392b" stroke-width="3" stroke-linecap="round"/>
+          <!-- Hypoténuse (vert) -->
+          <line x1="30" y1="150" x2="185" y2="30" stroke="#27ae60" stroke-width="3" stroke-linecap="round"/>
+          <!-- Carré angle droit -->
+          <polyline points="174,150 174,139 185,139" fill="none" stroke="var(--color-text-secondary)" stroke-width="1.4"/>
+          <!-- Arc angle α -->
+          <path d="M 55,150 A 25,25 0 0,1 49,129" fill="none" stroke="var(--ct)" stroke-width="2"/>
+          <!-- Sommets -->
+          <circle cx="30" cy="150" r="3" fill="var(--ct)"/>
+          <circle cx="185" cy="150" r="3" fill="var(--color-text-secondary)"/>
+          <circle cx="185" cy="30" r="3" fill="var(--color-text-secondary)"/>
+          <!-- Labels sommets -->
+          <text x="14" y="167" font-size="14" fill="var(--color-text-primary)" font-weight="700" font-family="serif">A</text>
+          <text x="190" y="167" font-size="14" fill="var(--color-text-primary)" font-weight="700" font-family="serif">B</text>
+          <text x="190" y="28" font-size="14" fill="var(--color-text-primary)" font-weight="700" font-family="serif">C</text>
+          <!-- Angle α -->
+          <text x="58" y="143" font-size="13" fill="var(--ct)" font-weight="700" font-family="serif">α</text>
+          <!-- Labels côtés -->
+          <text x="100" y="166" font-size="10" fill="#2980b9" font-weight="600" text-anchor="middle">adjacent (AB)</text>
+          <text x="197" y="97" font-size="10" fill="#c0392b" font-weight="600" text-anchor="start">opposé</text>
+          <text x="197" y="109" font-size="10" fill="#c0392b" font-weight="600" text-anchor="start">(BC)</text>
+          <text x="100" y="80" font-size="10" fill="#27ae60" font-weight="600" text-anchor="middle" transform="rotate(-38,100,80)">hypoténuse (AC)</text>
+          <!-- Annotation angle droit -->
+          <text x="155" y="168" font-size="9" fill="var(--color-text-tertiary)" text-anchor="middle">∠B = 90°</text>
+        </svg>
+        <div class="sides-legend">
+          <div class="side-item"><div class="side-swatch" style="background:#27ae60"></div><span>Hypoténuse — face à l'angle droit, le plus long côté</span></div>
+          <div class="side-item"><div class="side-swatch" style="background:#2980b9"></div><span>Adjacent — forme l'angle α, touche α</span></div>
+          <div class="side-item"><div class="side-swatch" style="background:#c0392b"></div><span>Opposé — en face de α, ne touche pas α</span></div>
+        </div>
+      </div>
+
+      <!-- Tableau SOHCAHTOA -->
+      <div style="flex:1;min-width:170px">
+        <div class="soh-grid" style="grid-template-columns:1fr">
+          <div class="soh-cell" style="background:rgba(39,174,96,.12);border-color:rgba(39,174,96,.3)">
+            <div class="soh-sub" style="color:#27ae60">SOH — Sinus</div>
+            <div class="soh-f">sin(α) = <span class="fr"><span class="n" style="color:#c0392b">opposé</span><span class="d" style="color:#27ae60">hypoténuse</span></span></div>
+          </div>
+          <div class="soh-cell" style="background:rgba(41,128,185,.12);border-color:rgba(41,128,185,.3)">
+            <div class="soh-sub" style="color:#2980b9">CAH — Cosinus</div>
+            <div class="soh-f">cos(α) = <span class="fr"><span class="n" style="color:#2980b9">adjacent</span><span class="d" style="color:#27ae60">hypoténuse</span></span></div>
+          </div>
+          <div class="soh-cell" style="background:rgba(142,68,173,.12);border-color:rgba(142,68,173,.3)">
+            <div class="soh-sub" style="color:#8e44ad">TOA — Tangente</div>
+            <div class="soh-f">tan(α) = <span class="fr"><span class="n" style="color:#c0392b">opposé</span><span class="d" style="color:#2980b9">adjacent</span></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="note">💡 Mémo : dans chaque formule, la couleur du numérateur et du dénominateur correspond aux côtés colorés sur le schéma.</p>
+  </div>
+
+  <!-- ── Méthode 1 ── -->
+  <div class="mblock" style="border-color:var(--cb)">
+    <div class="mhead"><div class="mbadge" style="background:var(--cl);color:var(--ct)">1</div><h3>Calculer une longueur inconnue</h3></div>
+    <ul>
+      <li>Repérer l'angle connu, la longueur connue, et poser x pour la longueur inconnue</li>
+      <li>Choisir sin, cos ou tan selon les côtés impliqués (SOHCAHTOA)</li>
+      <li>Isoler x en multipliant ou divisant</li>
+    </ul>
+
+    <!-- Exemple 1 -->
+    <div class="trigbox">
+      <div class="elbl">Exemple 1 — triangle rectangle en B, angle A = 38°, AC = 12 cm. Calculer BC.</div>
+      <div class="trigi">
+        <div class="trig-diagram">
+          <svg viewBox="0 0 210 170" style="width:170px;height:auto;flex-shrink:0" role="img" aria-label="Triangle ABC rectangle en B, angle A 38°, AC 12 cm, BC inconnu">
+            <polygon points="28,145 175,145 175,30" fill="var(--cl)" fill-opacity="0.25" stroke="none"/>
+            <!-- Côté adjacent AB -->
+            <line x1="28" y1="145" x2="175" y2="145" stroke="#2980b9" stroke-width="2.5" stroke-linecap="round"/>
+            <!-- Côté opposé BC -->
+            <line x1="175" y1="145" x2="175" y2="30" stroke="#c0392b" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="6,3"/>
+            <!-- Hypoténuse AC -->
+            <line x1="28" y1="145" x2="175" y2="30" stroke="#27ae60" stroke-width="2.5" stroke-linecap="round"/>
+            <!-- Angle droit -->
+            <polyline points="164,145 164,134 175,134" fill="none" stroke="var(--color-text-secondary)" stroke-width="1.3"/>
+            <!-- Arc angle A -->
+            <path d="M 52,145 A 24,24 0 0,1 46,125" fill="none" stroke="var(--ct)" stroke-width="1.8"/>
+            <!-- Sommets -->
+            <text x="13" y="161" font-size="13" fill="var(--color-text-primary)" font-weight="700" font-family="serif">A</text>
+            <text x="179" y="161" font-size="13" fill="var(--color-text-primary)" font-weight="700" font-family="serif">B</text>
+            <text x="179" y="28" font-size="13" fill="var(--color-text-primary)" font-weight="700" font-family="serif">C</text>
+            <!-- Angle -->
+            <text x="55" y="137" font-size="11" fill="var(--ct)" font-weight="700">38°</text>
+            <!-- Mesures -->
+            <text x="100" y="160" font-size="10" fill="#2980b9" text-anchor="middle" font-weight="600">AB</text>
+            <text x="189" y="91" font-size="10" fill="#c0392b" font-weight="700">BC=?</text>
+            <text x="92" y="75" font-size="10" fill="#27ae60" font-weight="600" text-anchor="middle" transform="rotate(-38,92,75)">AC = 12 cm</text>
+          </svg>
+          <div class="leg-strip">
+            <div class="leg-item"><div class="leg-dot" style="background:#27ae60"></div>hyp.</div>
+            <div class="leg-item"><div class="leg-dot" style="background:#c0392b"></div>opp.</div>
+          </div>
+        </div>
+        <div class="trigs">
+          <div class="step">BC est <b>opposé</b> à A, AC est l'<b>hypoténuse</b> → <b>sin</b></div>
+          <div class="step">sin(38°) = <span class="fr"><span class="n">BC</span><span class="d">12</span></span></div>
+          <div class="step">BC = 12 × sin(38°)</div>
+          <div class="step res">BC ≈ <b>7,4 cm</b></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Exemple 2 -->
+    <div class="trigbox" style="margin-top:10px">
+      <div class="elbl">Exemple 2 — triangle rectangle en B, angle A = 52°, AB = 9 cm. Calculer BC.</div>
+      <div class="trigi">
+        <div class="trig-diagram">
+          <svg viewBox="0 0 210 170" style="width:170px;height:auto;flex-shrink:0" role="img" aria-label="Triangle ABC rectangle en B, angle A 52°, AB 9 cm, BC inconnu">
+            <polygon points="28,145 175,145 175,68" fill="var(--cl)" fill-opacity="0.25" stroke="none"/>
+            <line x1="28" y1="145" x2="175" y2="145" stroke="#2980b9" stroke-width="2.5" stroke-linecap="round"/>
+            <line x1="175" y1="145" x2="175" y2="68" stroke="#c0392b" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="6,3"/>
+            <line x1="28" y1="145" x2="175" y2="68" stroke="#27ae60" stroke-width="2.5" stroke-linecap="round"/>
+            <polyline points="164,145 164,134 175,134" fill="none" stroke="var(--color-text-secondary)" stroke-width="1.3"/>
+            <path d="M 52,145 A 24,24 0 0,1 46,125" fill="none" stroke="var(--ct)" stroke-width="1.8"/>
+            <text x="13" y="161" font-size="13" fill="var(--color-text-primary)" font-weight="700" font-family="serif">A</text>
+            <text x="179" y="161" font-size="13" fill="var(--color-text-primary)" font-weight="700" font-family="serif">B</text>
+            <text x="179" y="66" font-size="13" fill="var(--color-text-primary)" font-weight="700" font-family="serif">C</text>
+            <text x="55" y="137" font-size="11" fill="var(--ct)" font-weight="700">52°</text>
+            <text x="100" y="160" font-size="10" fill="#2980b9" text-anchor="middle" font-weight="600">AB = 9 cm</text>
+            <text x="189" y="110" font-size="10" fill="#c0392b" font-weight="700">BC=?</text>
+          </svg>
+          <div class="leg-strip">
+            <div class="leg-item"><div class="leg-dot" style="background:#2980b9"></div>adj.</div>
+            <div class="leg-item"><div class="leg-dot" style="background:#c0392b"></div>opp.</div>
+          </div>
+        </div>
+        <div class="trigs">
+          <div class="step">BC est <b>opposé</b>, AB est <b>adjacent</b> → <b>tan</b></div>
+          <div class="step">tan(52°) = <span class="fr"><span class="n">BC</span><span class="d">9</span></span></div>
+          <div class="step">BC = 9 × tan(52°)</div>
+          <div class="step res">BC ≈ <b>11,5 cm</b></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Méthode 2 ── -->
+  <div class="mblock" style="border-color:var(--cb)">
+    <div class="mhead"><div class="mbadge" style="background:var(--cl);color:var(--ct)">2</div><h3>Calculer un angle inconnu</h3></div>
+    <ul>
+      <li>Identifier les deux longueurs connues → écrire le rapport sin, cos ou tan</li>
+      <li>Utiliser <b>arcsin</b>, <b>arccos</b> ou <b>arctan</b> sur la calculatrice (touche sin⁻¹, cos⁻¹, tan⁻¹)</li>
+    </ul>
+
+    <div class="trigbox">
+      <div class="elbl">Exemple — triangle rectangle en B, AB = 6 cm, AC = 10 cm. Calculer l'angle A.</div>
+      <div class="trigi">
+        <div class="trig-diagram">
+          <svg viewBox="0 0 210 170" style="width:170px;height:auto;flex-shrink:0" role="img" aria-label="Triangle ABC rectangle en B, AB 6 cm, AC 10 cm, angle A inconnu">
+            <polygon points="28,145 175,145 175,42" fill="var(--cl)" fill-opacity="0.25" stroke="none"/>
+            <line x1="28" y1="145" x2="175" y2="145" stroke="#2980b9" stroke-width="2.5" stroke-linecap="round"/>
+            <line x1="175" y1="145" x2="175" y2="42" stroke="#c0392b" stroke-width="2.5" stroke-linecap="round"/>
+            <line x1="28" y1="145" x2="175" y2="42" stroke="#27ae60" stroke-width="2.5" stroke-linecap="round"/>
+            <polyline points="164,145 164,134 175,134" fill="none" stroke="var(--color-text-secondary)" stroke-width="1.3"/>
+            <!-- Angle inconnu en pointillés -->
+            <path d="M 52,145 A 24,24 0 0,1 46,125" fill="none" stroke="var(--ct)" stroke-width="1.8" stroke-dasharray="4,2.5"/>
+            <text x="13" y="161" font-size="13" fill="var(--color-text-primary)" font-weight="700" font-family="serif">A</text>
+            <text x="179" y="161" font-size="13" fill="var(--color-text-primary)" font-weight="700" font-family="serif">B</text>
+            <text x="179" y="40" font-size="13" fill="var(--color-text-primary)" font-weight="700" font-family="serif">C</text>
+            <text x="56" y="135" font-size="12" fill="var(--ct)" font-weight="700">α=?</text>
+            <text x="100" y="160" font-size="10" fill="#2980b9" text-anchor="middle" font-weight="600">AB = 6 cm</text>
+            <text x="88" y="73" font-size="10" fill="#27ae60" font-weight="600" text-anchor="middle" transform="rotate(-57,88,73)">AC = 10 cm</text>
+          </svg>
+          <div class="leg-strip">
+            <div class="leg-item"><div class="leg-dot" style="background:#27ae60"></div>hyp.</div>
+            <div class="leg-item"><div class="leg-dot" style="background:#2980b9"></div>adj.</div>
+          </div>
+        </div>
+        <div class="trigs">
+          <div class="step">AB est <b>adjacent</b>, AC est l'<b>hypoténuse</b> → <b>cos</b></div>
+          <div class="step">cos(α) = <span class="fr"><span class="n">AB</span><span class="d">AC</span></span> = <span class="fr"><span class="n">6</span><span class="d">10</span></span> = 0,6</div>
+          <div class="step res">α = arccos(0,6) ≈ <b>53,1°</b></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Exercice ── -->
+  <div class="exo" style="border-color:var(--cb)">
+    <div class="exoh" style="background:var(--cl)"><i class="ti ti-pencil" style="font-size:15px;color:var(--ct)"></i><span style="font-weight:600;font-size:14px;color:var(--ct)">Exercice d'entraînement</span></div>
+    <div class="exob">
+      <div style="display:flex;gap:18px;flex-wrap:wrap;align-items:flex-start;margin-bottom:14px">
+        <div class="trig-diagram">
+          <svg viewBox="0 0 210 170" style="width:170px;height:auto;flex-shrink:0" role="img" aria-label="Triangle PQR rectangle en Q, PQ 8 cm, PR 15 cm, QR inconnu">
+            <polygon points="28,145 175,145 175,28" fill="var(--cl)" fill-opacity="0.25" stroke="none"/>
+            <line x1="28" y1="145" x2="175" y2="145" stroke="#2980b9" stroke-width="2.5" stroke-linecap="round"/>
+            <line x1="175" y1="145" x2="175" y2="28" stroke="#c0392b" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="6,3"/>
+            <line x1="28" y1="145" x2="175" y2="28" stroke="#27ae60" stroke-width="2.5" stroke-linecap="round"/>
+            <polyline points="164,145 164,134 175,134" fill="none" stroke="var(--color-text-secondary)" stroke-width="1.3"/>
+            <path d="M 52,145 A 24,24 0 0,1 46,125" fill="none" stroke="var(--ct)" stroke-width="1.8" stroke-dasharray="4,2.5"/>
+            <text x="13" y="161" font-size="13" fill="var(--color-text-primary)" font-weight="700" font-family="serif">P</text>
+            <text x="179" y="161" font-size="13" fill="var(--color-text-primary)" font-weight="700" font-family="serif">Q</text>
+            <text x="179" y="26" font-size="13" fill="var(--color-text-primary)" font-weight="700" font-family="serif">R</text>
+            <text x="56" y="136" font-size="11" fill="var(--ct)" font-weight="700">P=?</text>
+            <text x="100" y="160" font-size="10" fill="#2980b9" text-anchor="middle" font-weight="600">PQ = 8 cm</text>
+            <text x="190" y="90" font-size="10" fill="#c0392b" font-weight="700">QR=?</text>
+            <text x="86" y="68" font-size="10" fill="#27ae60" font-weight="600" text-anchor="middle" transform="rotate(-45,86,68)">PR=15 cm</text>
+            <!-- Tag angle R -->
+            <text x="165" y="42" font-size="10" fill="var(--ct)" font-weight="600">R=?</text>
+          </svg>
+          <div class="leg-strip">
+            <div class="leg-item"><div class="leg-dot" style="background:#27ae60"></div>hyp.</div>
+            <div class="leg-item"><div class="leg-dot" style="background:#2980b9"></div>adj.</div>
+            <div class="leg-item"><div class="leg-dot" style="background:#c0392b"></div>opp.</div>
+          </div>
+        </div>
+        <div style="flex:1;min-width:150px;font-size:14.5px;padding-top:4px">
+          Triangle PQR rectangle en Q.<br>PQ = 8 cm, PR = 15 cm (hypoténuse).
+        </div>
+      </div>
+      <ol>
+        <li>Calculer l'angle P (arrondir au degré).</li>
+        <li>Calculer QR (arrondir au dixième).</li>
+        <li>Calculer l'angle R (arrondir au degré).</li>
+        <li>Vérifier que P + R = 90°.</li>
+      </ol>
+      <button class="corr-btn" onclick="tog(this)">Voir la correction ▾</button>
+      <div class="corr">
+        <div class="ci"><span class="q">a)</span> cos(P) = PQ/PR = 8/15 → P = arccos(8/15) ≈ <b>58°</b></div>
+        <div class="ci"><span class="q">b)</span> On connaît P ≈ 58° et PQ = 8 cm (adjacent). Deux méthodes possibles :<br>
+          &nbsp;&nbsp;• <b>tan</b> : tan(58°) = QR/PQ → QR = 8 × tan(58°) ≈ <b>12,8 cm</b><br>
+          &nbsp;&nbsp;• <b>sin</b> : sin(58°) = QR/PR → QR = 15 × sin(58°) ≈ <b>12,7 cm</b><br>
+          <span style="font-size:12px;color:var(--color-text-tertiary)">(la légère différence vient de l'arrondi sur P)</span>
+        </div>
+        <div class="ci"><span class="q">c)</span> sin(R) = PQ/PR = 8/15 → R = arcsin(8/15) ≈ <b>32°</b></div>
+        <div class="ci"><span class="q">d)</span> 58°+32° = <b>90° ✓</b> — les deux angles aigus d'un triangle rectangle sont toujours complémentaires</div>
+      </div>
+    </div>
+  </div>
+</div><!-- fin ch-tr -->
+
+</div><!-- fin .app -->
+
+<script>
+const C = { fr:'var(--bt)', eq:'var(--pt)', fn:'var(--tt)', id:'var(--at)', tr:'var(--ct)' };
+
+function tog(b) {
+  const c = b.nextElementSibling;
+  c.classList.toggle('open');
+  b.textContent = c.classList.contains('open') ? 'Masquer la correction ▴' : 'Voir la correction ▾';
+}
+
+function show(id) {
+  document.querySelectorAll('[id^="ch-"]').forEach(e => e.style.display = 'none');
+  document.getElementById('ch-' + id).style.display = 'block';
+  document.querySelectorAll('.tb').forEach(b => {
+    const a = b.dataset.ch === id;
+    b.classList.toggle('active', a);
+    b.style.color = a ? C[id] : '';
+  });
+}
+
+document.querySelectorAll('.tb').forEach(b => b.addEventListener('click', () => show(b.dataset.ch)));
+</script>
+</body>
+</html>
